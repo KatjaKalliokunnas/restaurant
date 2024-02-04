@@ -1,0 +1,75 @@
+<div class="body" *ngIf="isEmpty">
+  <h1 class="price">Tuotteita ostoskorissa</h1>
+  <div class="itemcontainer">
+    <div class="content" *ngFor="let item of content">
+      <p class="leftItem">{{ item.annos }} :</p>
+      <p class="rightItem">
+        <span class="price">{{ item.hinta }}.00 </span> euroa
+      </p>
+    </div>
+  </div>
+  <div>
+    Tilauksen hinta yhteensä:
+    <p class="price">{{ totalPrice }}.00</p>
+    euroa
+  </div>
+  <br />
+  <button mat-raised-button color="primary" (click)="clearShoppingCart()">
+    Tyhjennä ostoskori
+  </button>
+  <mat-card>
+    <mat-card-content>
+      <mat-card-title>Syötäthän vielä osoitetietosi</mat-card-title>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value, f.valid)">
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>Nimi:</mat-label>
+          <input
+            type="text"
+            name="name"
+            ngModel
+            matInput
+            #name="ngModel"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>Osoite:</mat-label>
+          <input
+            type="text"
+            name="osoite"
+            ngModel
+            matInput
+            #address="ngModel"
+            required
+          />
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always" appearance="outline">
+          <mat-label>Puhelinnumero:</mat-label>
+          <input
+            type="text"
+            name="phone"
+            ngModel
+            matInput
+            #phone="ngModel"
+            required
+          />
+        </mat-form-field>
+        <br />
+        <p *ngIf="valid" class="alert">Tähdellä merkityt ovat pakollisia</p>
+
+        <button mat-raised-button color="primary" type="submit">Tilaa</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Näytetään mikäli ostoskori on tyhjä -->
+<div *ngIf="!isEmpty">
+  <div class="cartBody">
+    <h1 class="price">Ostoskori</h1>
+    <h3>Ostoskorissasi ei ole tällä hetkellä tuotteita</h3>
+    <a routerLink="/restaurants">Palaa selaamaan ravintoloita</a>
+  </div>
+</div>

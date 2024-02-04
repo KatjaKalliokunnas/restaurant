@@ -1,0 +1,13 @@
+<mat-grid-list cols="3" rowHeight="3:3">
+  <mat-grid-tile
+    *ngFor="let val of restaurants; let i = index"
+    routerLink="/menu/{{ val.id }}"
+  >
+    <mat-card>
+      <img mat-card-image [src]="val.photo" alt="Kuva ravintolasta" />
+      <mat-card-header
+        ><mat-card-title>{{ val.name }}</mat-card-title></mat-card-header
+      >
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,27 @@
+<div class="body">
+  <h1>{{ restaurant.name }}</h1>
+  <p>Annokset</p>
+
+  <div class="portion" *ngFor="let item of restaurant.menu; let i = index">
+    <p class="name">{{ restaurant.menu[i].annos }}</p>
+    <p class="description">{{ restaurant.menu[i].kuvaus }}</p>
+    <p class="price">{{ restaurant.menu[i].hinta + '.00 e' }}</p>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addFood(item)"
+      class="button"
+    >
+      +
+    </button>
+  </div>
+  <button
+    mat-raised-button
+    class="order-button"
+    color="primary"
+    (click)="toShoppingCart()"
+  >
+    Näytä ostoskori
+  </button>
+  <p>{{ 'Tuotteiden hinta yhteensä: ' + totalPrice }}</p>
+</div>

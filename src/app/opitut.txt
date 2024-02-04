@@ -1,0 +1,6 @@
+Opittua:
+- Ainakin sen kantapään kautta, että jos jokin ei toimi niin ensimmäisenä kannattaaa käynnistää sovellus uudestaa.
+- Lisää siitä miten luokat käyttäytyvät.
+- Miten komponentit välittävät tietoa toisilleen 
+- Opin perusteita Angular Materialsin käytöstä
+- Tilanhallintaa localStoragen avulla

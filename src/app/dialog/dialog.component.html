@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Tilauksesi on vastaanotettu</h1>
+<div mat-dialog-content>
+  <h3>Tilauksesi:</h3>
+
+  <div *ngFor="let item of data; let i = index">
+    <div *ngFor="let val of item.order; let j = index">
+      {{ item.order[j].annos }}
+    </div>
+  </div>
+  <br /><br />
+  <h3>Tilauksesi toimitetaan osoitteeseen:</h3>
+
+  <p *ngFor="let val of data">{{ val.address.osoite }} p</p>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</div>
